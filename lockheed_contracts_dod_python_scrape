@@ -1,0 +1,178 @@
+"""Display a read-only summary of a contract awards CSV file."""
+
+import argparse
+import csv
+from decimal import Decimal, InvalidOperation
+from pathlib import Path
+
+
+DEFAULT_CSV_PATH = Path(
+    "/Users/alexandraoyile/Library/Mobile Documents/com~apple~CloudDocs/"
+    "GEOFINEX/PrimeAwardSummaries_2026-11-25_H22M57S05439755/"
+    "Contracts_PrimeAwardSummaries_2026-11-25_H22M57S28_1.csv"
+)
+
+FINANCIAL_COLUMNS = (
+    "total_obligated_amount",
+    "total_outlayed_amount",
+    "current_total_value_of_award",
+    "potential_total_value_of_award",
+)
+MISSING_MARKERS = {"", "na", "n/a", "null", "none"}
+
+
+def parse_arguments():
+    """Read an optional CSV path from the command line."""
+    parser = argparse.ArgumentParser(
+        description="Inspect a contract awards CSV without changing it."
+    )
+    parser.add_argument(
+        "csv_path",
+        nargs="?",
+        type=Path,
+        default=DEFAULT_CSV_PATH,
+        help="CSV file to inspect (defaults to the provided Lockheed Martin file)",
+    )
+    return parser.parse_args()
+
+
+def is_missing(value):
+    """Return True when a CSV cell is blank or uses a common missing marker."""
+    return value is None or value.strip().lower() in MISSING_MARKERS
+
+
+def as_number(value):
+    """Convert a number in a CSV cell to Decimal, or return None if not numeric."""
+    cleaned = value.strip().replace(",", "").replace("$", "")
+    try:
+        number = Decimal(cleaned)
+    except InvalidOperation:
+        return None
+    return number if number.is_finite() else None
+
+
+def inferred_type(categories):
+    """Infer a simple display type from the categories seen in a column."""
+    if not categories:
+        return "empty"
+    if "text" in categories:
+        return "text"
+    if "number" in categories:
+        return "number"
+    return "integer"
+
+
+def format_record(record, columns):
+    """Display one record as readable column/value lines."""
+    return "\n".join(f"  {column}: {record.get(column, '')}" for column in columns)
+
+
+def main():
+    args = parse_arguments()
+    if not args.csv_path.is_file():
+        raise SystemExit(f"Error: CSV file not found: {args.csv_path}")
+
+    with args.csv_path.open("r", newline="", encoding="utf-8-sig") as csv_file:
+        reader = csv.DictReader(csv_file)
+        columns = reader.fieldnames
+        if columns is None:
+            raise SystemExit("Error: The CSV file is empty or has no header row.")
+
+        missing_counts = dict.fromkeys(columns, 0)
+        type_categories = {column: set() for column in columns}
+        financial_stats = {
+            column: {"count": 0, "sum": Decimal(0), "minimum": None, "maximum": None}
+            for column in FINANCIAL_COLUMNS
+            if column in columns
+        }
+        unique_keys = set()
+        duplicate_key_rows = 0
+        first_records = []
+        row_count = 0
+
+        for row in reader:
+            row_count += 1
+            if len(first_records) < 5:
+                first_records.append(row)
+
+            for column in columns:
+                value = row.get(column, "")
+                if is_missing(value):
+                    missing_counts[column] += 1
+                    continue
+
+                number = as_number(value)
+                if number is None:
+                    type_categories[column].add("text")
+                elif number == number.to_integral_value():
+                    type_categories[column].add("integer")
+                else:
+                    type_categories[column].add("number")
+
+                if column in financial_stats:
+                    if number is not None:
+                        stats = financial_stats[column]
+                        stats["count"] += 1
+                        stats["sum"] += number
+                        stats["minimum"] = (
+                            number if stats["minimum"] is None else min(stats["minimum"], number)
+                        )
+                        stats["maximum"] = (
+                            number if stats["maximum"] is None else max(stats["maximum"], number)
+                        )
+
+            key = row.get("contract_award_unique_key", "")
+            if not is_missing(key):
+                if key in unique_keys:
+                    duplicate_key_rows += 1
+                else:
+                    unique_keys.add(key)
+
+    print(f"File: {args.csv_path}")
+    print(f"Dataset size: {row_count:,} rows and {len(columns):,} columns")
+
+    print("\nColumn names:")
+    print(", ".join(columns))
+
+    print("\nFirst five records:")
+    if not first_records:
+        print("(The CSV has no data rows.)")
+    else:
+        for number, record in enumerate(first_records, start=1):
+            print(f"\nRecord {number}:")
+            print(format_record(record, columns))
+
+    print("\nInferred data type of each column:")
+    for column in columns:
+        print(f"  {column}: {inferred_type(type_categories[column])}")
+
+    print("\nMissing values in each column:")
+    for column in columns:
+        print(f"  {column}: {missing_counts[column]:,}")
+
+    print("\nDuplicate check for Contract Award Unique Key:")
+    if "contract_award_unique_key" not in columns:
+        print("Column not found; duplicate check skipped.")
+    else:
+        print(f"Unique non-missing keys: {len(unique_keys):,}")
+        print(f"Rows repeating an earlier key: {duplicate_key_rows:,}")
+
+    print("\nKey financial columns:")
+    if not financial_stats:
+        print("None of the four expected financial columns were found.")
+    else:
+        for column, stats in financial_stats.items():
+            print(f"\n{column}:")
+            if stats["count"] == 0:
+                print("  No numeric values available.")
+                continue
+            mean = stats["sum"] / stats["count"]
+            print(f"  Count: {stats['count']:,}")
+            print(f"  Mean: {mean}")
+            print(f"  Minimum: {stats['minimum']}")
+            print(f"  Maximum: {stats['maximum']}")
+            print(f"  Sum: {stats['sum']}")
+
+
+if __name__ == "__main__":
+    main()
