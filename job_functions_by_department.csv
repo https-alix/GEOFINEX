@@ -1,0 +1,54 @@
+department,Administration & Support,Business Development & Strategy,Communications,Contracts & Commercial,Cybersecurity,Early Careers & Internships,Engineering,Finance & Accounting,Human Resources,Legal & Compliance,Logistics & Operations,Manufacturing & Production,Other / Unclassified,Programme & Project Management,Programme Planning & Scheduling,Property & Asset Management,Quality & Testing,Security & Physical Protection,Software & IT,Supply Chain & Procurement,Technical Maintenance & Field Service,Training & Development,TOTAL
+Space,8,8,0,33,23,45,899,42,1,0,5,107,123,25,42,3,184,17,258,44,69,4,1940
+MFC-Primary,6,3,4,23,18,13,322,35,2,2,8,216,77,54,17,2,171,8,46,68,11,4,1110
+LM Aeronautics Co- Fort Worth,5,8,1,23,14,16,242,26,1,6,6,57,98,55,2,4,56,12,89,31,30,1,783
+RMS Core,3,3,2,11,29,37,330,14,0,2,4,5,67,29,3,3,31,18,125,15,16,0,747
+LM Aeronautics Co- Marietta,0,0,0,9,5,5,102,2,0,0,1,36,32,21,0,0,13,0,27,4,7,0,264
+Enterprise Business Services,2,0,0,2,3,0,119,3,0,0,1,0,35,3,0,0,0,1,72,12,0,0,253
+LM Aeronautics Co- Palmdale,2,0,0,7,8,5,75,5,0,0,0,40,44,5,0,0,18,5,19,1,15,2,251
+RMS-Svcs-LMOS,0,0,0,0,55,1,58,0,0,0,4,1,18,1,0,0,1,24,29,0,11,17,220
+RMS Manufacturing,0,0,0,0,0,0,43,0,0,0,2,72,12,3,0,0,33,0,1,0,17,0,183
+AFS-LMLS Aero Segment,2,1,0,0,0,0,33,0,0,0,4,2,9,1,1,0,6,0,34,7,21,1,122
+MFC-SOFGLSS-LMOS,2,0,0,4,0,2,19,7,0,0,9,14,13,7,1,0,5,0,6,4,27,0,120
+MFC-Camden,0,0,0,0,0,2,14,3,0,0,2,38,7,2,0,0,12,0,0,1,8,0,89
+RMS Sikorsky Core,0,0,0,9,2,0,21,4,0,1,0,7,5,5,1,0,6,1,5,12,3,0,82
+GSO-LMLS Aero Segment,1,0,0,0,0,0,4,0,0,0,4,14,9,2,0,0,9,0,1,0,37,0,81
+Space LMOS,0,0,0,2,0,0,25,0,0,0,1,0,26,1,0,0,0,0,15,1,9,0,80
+MFC-Chelmsford,0,0,0,0,1,0,16,1,0,0,1,18,2,0,0,0,13,0,2,2,7,0,63
+LM Canada,0,0,0,2,0,0,21,0,0,0,5,3,7,1,0,0,7,0,4,0,1,1,52
+MFC-LMUK Ampthill,0,0,0,0,0,0,20,0,0,1,0,8,9,0,0,0,7,0,2,1,1,0,49
+GRS/Core-LMLS Aero Segment,0,0,0,1,0,0,22,0,1,0,0,0,8,3,0,0,0,1,5,0,3,0,44
+RMS Sikorsky Manufacturing,0,0,0,0,0,0,11,0,0,0,2,8,4,4,0,0,5,1,0,1,6,0,42
+LMAES Pty Ltd,0,0,0,0,4,0,11,0,0,0,0,1,11,4,0,0,0,0,2,1,1,3,38
+Corporate Headquarters,0,1,1,0,5,0,4,0,0,1,1,0,13,0,0,0,0,2,3,0,1,0,32
+MFC-Lufkin,0,0,0,0,0,1,2,1,0,0,1,12,0,4,0,0,7,0,0,0,1,1,30
+LMLS EEs on EBS LMGI Ldgr,0,0,0,0,0,0,9,0,0,0,0,0,1,0,0,0,1,0,8,0,5,0,24
+Space Services,0,0,0,0,0,0,5,2,0,0,0,0,2,0,0,0,3,0,7,0,4,0,23
+RMS-Svcs-CORP,0,0,0,0,7,0,10,0,0,0,0,0,1,0,0,0,1,1,1,0,1,0,22
+RMS Sikorsky Australia,1,0,0,0,0,0,0,0,0,0,1,0,4,0,0,0,0,0,0,0,5,0,11
+LM Pinellas,0,0,0,0,0,1,1,0,0,0,0,4,2,0,0,0,3,0,0,0,0,0,11
+LMUK Strategic Systems,0,0,0,0,0,0,3,2,0,1,0,0,1,0,0,0,0,0,1,1,0,1,10
+LM UK LTD (RMS-Owego),0,1,0,0,0,0,3,0,0,0,1,0,3,0,0,0,0,0,1,0,0,0,9
+RMS Derco Aerospace,0,0,0,2,0,0,1,0,0,0,0,0,3,0,0,0,0,0,0,0,2,0,8
+RMS-LMGI,0,0,0,0,0,0,5,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,8
+RMS UK Svcs,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,7
+LM Aeronautics Co- Johnstown,0,0,0,0,0,0,2,0,1,0,0,3,0,0,0,0,1,0,0,0,0,0,7
+Advanced Technology Labs,0,0,0,0,2,0,1,0,0,0,0,0,1,0,0,0,0,0,2,0,0,0,6
+Space Headquarters,0,4,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6
+LMUK Ltd Space,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,5
+RMS-LMGI-Svcs-LMOS,0,0,0,0,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+LM UK LTD (Shared Services),0,0,0,0,1,0,1,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,4
+LM UK Ltd. (Corp. Bus. Dev.),0,1,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+MFC-SOFGLSS,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,2,0,0,3
+RMS NZ - Project Alexander,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,3
+"Deposition Science, Inc",0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,3
+LMA Aero Programs,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,2,0,0,0,3
+"CDL Systems, Inc Canada (Aero)",0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+ADP - LMLS Aero Segment AFS,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,2
+RMS Bothell Region,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,2
+RMS Sikorsky Svcs Corp,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,2
+EBS Canada,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+RMS-Svcs LMGOS,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+LMA MFC programs,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1
+RMS Sikorsky Svcs LMOS,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1
+LM Properties Inc,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1
